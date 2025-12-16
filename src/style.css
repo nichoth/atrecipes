@@ -1,0 +1,114 @@
+@import url("../node_modules/@substrate-system/css-normalize/dist/index.min.css");
+
+:root {
+    --active: #0051ff;
+    --transition: 0.3s;
+}
+
+footer {
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: 1px solid;
+    padding: 4rem 2rem;
+    justify-content: center;
+}
+
+a {
+    transition: all var(--transition);
+
+    &:hover {
+        text-underline-offset: 2px;
+    }
+}
+
+* {
+    /* override */
+    line-height: calc(4px + 2.5ex);
+}
+
+h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid;
+
+    &:code {
+        font-size: 1.6rem;
+    }
+}
+
+pre[class*=language-] {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.route {
+    min-height: 100vh;
+    margin: 2rem auto;
+    max-width: 40rem;
+}
+
+header {
+    padding: 1rem;
+    border-bottom: 1px solid;
+}
+
+body {
+    font-size: 1.2rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+    & code {
+        font-size: 1rem;
+    }
+
+    &.index {
+        & ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        & li {
+            & a {
+                border: 2px solid;
+                transition: all var(--transition);
+                text-decoration: underline;
+                padding: 1rem;
+                display: inline-block;
+                width: 100%;
+                text-decoration-style: dotted;
+                text-underline-offset: 2px;
+                outline: 2px solid transparent;
+                color: black;
+
+                &:active {
+                    color: var(--active);
+                }
+
+                &:hover {
+                    box-shadow: -3px 0 0 0 black;
+                    text-decoration-style: solid;
+                    text-underline-offset: 3px;
+
+                    &:active {
+                        box-shadow: -3px 0 0 0 var(--active);
+                    }
+                }
+            }
+
+            & p {
+                margin-bottom: 0;
+            }
+
+            & div {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 0.4rem;
+            }
+        }
+    }
+}
+
+p {
+    margin-bottom: 1rem;
+}

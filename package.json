@@ -1,1 +1,36 @@
-{}
+{
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "start": "npm run build && http-server ./public --port 8888",
+        "lint": "eslint \"./**/*.{ts,js}\"",
+        "copy": "cp ./_public/* ./public",
+        "build:js": "esbuild ./src/index.ts --minify --bundle > ./public/index.min.js",
+        "build": "mkdir -p public && rm -rf ./public/* && npm run build:html && npm run build:css && npm run copy && npm run build:js",
+        "build:html": "esbuild --bundle --packages=external --platform=node --format=esm ./build.ts | node --input-type=module",
+        "build:css": "lightningcss --minify --bundle --targets \">= 0.25%\" ./src/style.css -o ./public/style.css"
+    },
+    "devDependencies": {
+        "@substrate-system/anchor": "^0.0.10",
+        "@substrate-system/css-normalize": "^0.0.13",
+        "@types/markdown-it": "^14.1.2",
+        "@types/node": "^25.0.2",
+        "@typescript-eslint/eslint-plugin": "^8.50.0",
+        "@typescript-eslint/parser": "^8.50.0",
+        "browserslist": "^4.28.1",
+        "esbuild": "^0.27.1",
+        "eslint": "^8.57.1",
+        "eslint-config-standard": "^17.1.0",
+        "globby": "^16.0.0",
+        "gray-matter": "^4.0.3",
+        "html-minifier-terser": "^7.2.0",
+        "http-server": "^14.1.1",
+        "lightningcss": "^1.30.2",
+        "lightningcss-cli": "^1.30.2",
+        "markdown-it": "^14.1.0",
+        "prettier": "^3.7.4"
+    },
+    "dependencies": {
+        "lodash-es": "^4.17.21"
+    }
+}
