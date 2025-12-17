@@ -10,9 +10,12 @@
         "build:html": "esbuild --bundle --packages=external --platform=node --format=esm ./build.ts | node --input-type=module",
         "build:css": "lightningcss --minify --bundle --targets \">= 0.25%\" ./src/style.css -o ./public/style.css"
     },
-    "devDependencies": {
+    "dependencies": {
         "@substrate-system/anchor": "^0.0.10",
         "@substrate-system/css-normalize": "^0.0.13",
+        "lodash-es": "^4.17.21"
+    },
+    "devDependencies": {
         "@types/markdown-it": "^14.1.2",
         "@types/node": "^25.0.2",
         "@typescript-eslint/eslint-plugin": "^8.50.0",
@@ -23,14 +26,10 @@
         "eslint-config-standard": "^17.1.0",
         "globby": "^16.0.0",
         "gray-matter": "^4.0.3",
-        "html-minifier-terser": "^7.2.0",
         "http-server": "^14.1.1",
         "lightningcss": "^1.30.2",
         "lightningcss-cli": "^1.30.2",
         "markdown-it": "^14.1.0",
         "prettier": "^3.7.4"
-    },
-    "dependencies": {
-        "lodash-es": "^4.17.21"
     }
 }
