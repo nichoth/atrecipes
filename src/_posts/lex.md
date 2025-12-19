@@ -20,15 +20,19 @@ It will create a folder `lexicons/` in the project root with
 the JSON definitions for the given NSIDs.
 
 ```bash
+# install two lexicons
 $ npx lex install app.bsky.feed.post app.bsky.feed.like
 ```
 
-*But* &mdash; what if I am using custom lexicons in my app? How to easily create
+*But* &mdash; what if you are using custom lexicons? How to easily create
 typescript for them too?
+
+You can put custom lexicons in a local directory, and copy them to the
+`lexicons` folder as part of an `npm` script.
 
 ## The Lexicon
 
-This is defined locally, in the project. This file is copied by `rsync` to
+This is defined locally. This file is copied by `rsync` to
 the `lexicons/...` folder, and the `npx lex build` command creates
 typescript in the `src/lexicons` folder based on this file.
 `src/lexicons` is ignored by `git`.
@@ -73,9 +77,8 @@ typescript in the `src/lexicons` folder based on this file.
 
 ## The Build Script
 
-If you have an app named `my-application.app`, you
-can use the `rsync` command to copy your custom lexicons into the `lexicons/`
-folder too.
+You can use the `rsync` command to copy your custom lexicons into the
+`lexicons/` folder.
 
 `lexicons/` is the default folder name created by `lex` after
 you install, and it is committed to git. It is used by `lex build`
@@ -92,5 +95,3 @@ to create the corresponding typescript.
     // ...
 }
 ```
-
-
