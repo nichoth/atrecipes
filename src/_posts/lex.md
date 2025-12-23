@@ -35,7 +35,7 @@ You can put custom lexicons in a local directory, and copy them to the
 This is defined locally. This file is copied by `rsync` to
 the `lexicons/...` folder, and the `npx lex build` command creates
 typescript in the `src/lexicons` folder based on this file.
-`src/lexicons` is ignored by `git`.
+**`src/lexicons` is ignored by `git`**.
 
 ```js
 // lexicons-custom/app/my-application/actor/profile.json
