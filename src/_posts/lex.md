@@ -21,20 +21,20 @@ the JSON definitions for the given NSIDs.
 
 ```bash
 # install two lexicons
-$ npx lex install app.bsky.feed.post app.bsky.feed.like
+npx lex install app.bsky.feed.post app.bsky.feed.like
 ```
 
 *But* &mdash; what if you are using custom lexicons? How to easily create
-typescript for them too?
+typescript for them too? Put custom lexicons in a local directory, and copy
+them to the `lexicons` folder as part of an `npm` script.
 
-You can put custom lexicons in a local directory, and copy them to the
-`lexicons` folder as part of an `npm` script.
+## The Custom Lexicon
 
-## The Lexicon
+This is defined locally. Is is copied by `rsync` to
+the `lexicons/...` folder.
 
-This is defined locally. This file is copied by `rsync` to
-the `lexicons/...` folder, and the `npx lex build` command creates
-typescript in the `src/lexicons` folder based on this file.
+The `npx lex build` command creates typescript based on `lexicons/`.
+It will create type definitions in the `src/lexicons/` folder.
 **`src/lexicons` is ignored by `git`**.
 
 ```js
@@ -78,10 +78,12 @@ typescript in the `src/lexicons` folder based on this file.
 ## The Build Script
 
 You can use the `rsync` command to copy your custom lexicons into the
-`lexicons/` folder.
+`lexicons/` folder. That way you can re-install via `npx lex install ...`,
+and still keep your custom lexicons, because they are in a different source
+folder.
 
 `lexicons/` is the default folder name created by `lex` after
-you install, and it is committed to git. It is used by `lex build`
+you install. **It is committed to git**. It is used by `lex build`
 to create the corresponding typescript.
 
 ```js
